@@ -1,137 +1,120 @@
-🤖 AI Chatbot using Gemini API and Python
+# ⚡ Harshit AI Assistant
 
-Welcome to my AI Chatbot project! 🚀
+A personal AI chatbot built using **Python, Flask and Google Gemini API** 🤖
 
-This is a conversational AI chatbot built using **Python** and **Google Gemini API**. The chatbot can answer questions, hold conversations, and even remember previous messages during the same chat session, making interactions feel more natural and engaging.
+Harshit AI is a web application where users can chat with an AI assistant and get real-time responses using Google's Gemini model.
 
-This project was created as part of my learning journey in **Artificial Intelligence and Machine Learning (AI/ML)** to understand how Large Language Models (LLMs) can be integrated into real-world applications.
-
----
-
-✨ Features
-
-✅ AI-powered responses using Google Gemini API
-
-✅ Conversation memory (remembers previous messages)
-
-✅ Interactive command-line chat interface
-
-✅ Continuous conversation support
-
-✅ Fast and lightweight implementation
-
-✅ Easy to customize and extend
+The project connects a modern frontend interface with a Flask backend and AI integration.
 
 ---
 
-🛠️ Tech Stack
+## ✨ Features
 
-- 🐍 Python
-- 🤖 Google Gemini API
-- 📦 google-genai SDK
-
----
-
-🚀 Getting Started
-
-1️⃣ Install Dependencies
-
-```bash
-pip install google-genai
-```
-
-2️⃣ Add Your Gemini API Key
-
-Replace the placeholder API key in the code with my gemine Gemini API key.
-
-```python
-client = genai.Client(api_key="YOUR_API_KEY")
-```
-
-3️⃣ Run the Chatbot
-
-```bash
-python chatbot.py
-```
+- 🤖 AI chatbot functionality
+- ⚡ Gemini API integration
+- 💬 Real-time AI responses
+- ⌨️ Enter key message support
+- ⏳ Response loading animation
+- 🟢 Online status indicator
+- 🎨 Responsive and clean UI
+- 🧹 Clear chat option
 
 ---
 
-💬 Sample Conversation
+## 🛠️ Technologies Used
+
+### 🎨 Frontend
+
+HTML  
+CSS  
+JavaScript  
 
 
-You: What is AI?
+### ⚙️ Backend
 
-Bot: Artificial Intelligence (AI) refers to the simulation of human intelligence in machines that can learn, reason, and solve problems.
-
-You: What is Machine Learning?
-
-Bot: Machine Learning is a subset of AI that enables computers to learn from data and improve their performance without being explicitly programmed.
-
-You: My name is Harshit.
-
-Bot: Nice to meet you, Harshit!
-
-You: What is my name?
-
-Bot: Your name is Harshit.
+Python  
+Flask  
 
 
+### 🧠 AI
 
-
-🎯 What I Learned
-
-Through this project, I explored:
-
-- API Integration
-- Working with Large Language Models (LLMs)
-- Conversation Memory
-- Python Application Development
-- Prompt-Based AI Interactions
-- Error Handling and Debugging
-
-One of the biggest learnings from this project was understanding how to connect AI models with real applications and troubleshoot API-related issues during development.
+Google Gemini API
 
 ---
 
-🔮 Future Improvements
+## 📂 Project Structure
 
-I plan to enhance this project with:
+    api-connect-python
 
-- 🖥️ GUI using Tkinter
-- 🌐 Web Interface using Streamlit
-- 💾 Chat History Storage
-- 🎙️ Voice Input & Voice Output
-- 📄 PDF-Based Question Answering
-- 🧠 Advanced Context Management
+    ├── app.py
+    ├── chatbot.py
+    ├── requirements.txt
+    ├── README.md
+    │
+    ├── templates
+    │     └── index.html
+    │
+    └── static
+          └── style.css
 
 ---
 
-📸 Project Preview
+## 🚀 How To Run
 
-Example:
+### Step 1: Clone the repository
 
-```text
-Gemini AI Chatbot Started
+    git clone your-repository-link
 
-You: What is AI?
 
-Bot: Artificial Intelligence (AI) refers to the simulation of human intelligence in machines.
+### Step 2: Open project folder
 
-You: What is Machine Learning?
+    cd api-connect-python
 
-Bot: Machine Learning is a subset of AI that learns from data.
 
-You: My name is Harshit.
+### Step 3: Install dependencies
 
-Bot: Nice to meet you, Harshit!
+    pip install -r requirements.txt
 
-You: What is my name?
 
-Bot: Your name is Harshit.
+### Step 4: Add API Key 🔑
+
+Create a `.env` file:
+
+    GEMINI_API_KEY=your_api_key_here
+
+
+### Step 5: Start application
+
+    python app.py
+
+
+Open browser:
+
+    http://127.0.0.1:5000
 
 
 ---
 
-👨‍💻 Author
+## 📸 Preview
 
-**Harshit Shrivastava**
+Add screenshots of the application here.
+
+
+---
+
+## 🔮 Future Improvements
+
+📄 PDF document analysis  
+🖼️ Image understanding  
+🔎 AI search integration  
+🎤 Voice assistant  
+💾 Chat history  
+
+
+---
+
+## 👨‍💻 Author
+
+Harshit
+
+Built with Python + Flask + Gemini API ⚡
