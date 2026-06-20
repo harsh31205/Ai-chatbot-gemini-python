@@ -1,19 +1,22 @@
 from google import genai
+import os
+from dotenv import load_dotenv
 
-client = genai.Client(api_key="YOUR_API_KEY")
+load_dotenv()
+
+key = os.getenv("GEMINI_API_KEY")
+
+print("KEY:", key[:8] if key else "NO KEY")
+
+client = genai.Client(
+    api_key=key
+)
 
 chat = client.chats.create(
     model="gemini-2.5-flash"
 )
 
-print("Gemini AI Chatbot started (type exit to stop)")
 
-while True:
-    user = input("You: ")
-
-    if user.lower() == "exit":
-        break
-
-    response = chat.send_message(user)
-
-    print("\nBot:", response.text, "\n")
+def get_response(message):
+    response = chat.send_message(message)
+    return response.text

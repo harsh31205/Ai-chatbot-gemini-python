@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Harshit AI</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+<!-- icons -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+<!-- Sidebar -->
+
+<aside class="sidebar">
+
+
+<div class="profile">
+
+<div class="avatar">
+<i class="fa-solid fa-robot"></i>
+</div>
+
+
+<h2>Harshit AI</h2>
+
+<p>
+Personal AI Assistant
+</p>
+
+</div>
+
+
+
+
+<div class="menu">
+
+
+<div class="menu-card">
+
+<i class="fa-solid fa-microchip"></i>
+
+<div>
+<h4>Model</h4>
+<p>Gemini 2.5 Flash</p>
+</div>
+
+</div>
+
+
+
+
+<div class="menu-card">
+
+<i class="fa-solid fa-code"></i>
+
+<div>
+<h4>Stack</h4>
+<p>Flask + Python</p>
+</div>
+
+</div>
+
+
+
+
+<div class="menu-card">
+
+<i class="fa-solid fa-circle-check"></i>
+
+<div>
+<h4>Status</h4>
+<p>Online</p>
+</div>
+
+</div>
+
+
+
+</div>
+
+
+<button class="clear" onclick="clearChat()">
+
+<i class="fa-solid fa-trash"></i>
+
+Clear Chat
+
+</button>
+
+
+
+</aside>
+
+
+
+
+
+
+
+<!-- Main -->
+
+
+<section class="chat">
+
+
+<header>
+
+
+<div>
+
+<h1>
+Harshit AI
+</h1>
+
+<span>
+Ready to assist you
+</span>
+
+</div>
+
+
+
+<div class="online">
+
+● Online
+
+</div>
+
+
+</header>
+
+
+
+
+
+
+
+<div id="chat-box">
+
+
+<div class="bot-msg">
+
+<div class="icon">
+
+🤖
+
+</div>
+
+
+<div>
+
+Hello 👋
+
+<br>
+
+I am Harshit AI.
+Ask me anything.
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="input-area">
+
+
+<input 
+id="message"
+placeholder="Type your message..."
+onkeydown="enterSend(event)"
+>
+
+
+
+<button onclick="sendMessage()">
+
+<i class="fa-solid fa-paper-plane"></i>
+
+</button>
+
+
+</div>
+
+
+
+
+</section>
+
+
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+
+function enterSend(e){
+
+if(e.key==="Enter")
+sendMessage();
+
+}
+
+
+
+
+async function sendMessage(){
+
+
+let input=document.getElementById("message");
+
+let text=input.value.trim();
+
+
+if(!text)
+return;
+
+
+
+
+let box=document.getElementById("chat-box");
+
+
+
+box.innerHTML += `
+
+
+<div class="user-msg">
+
+${text}
+
+</div>
+
+
+`;
+
+
+
+input.value="";
+
+
+
+
+
+// loading
+
+
+box.innerHTML += `
+
+<div class="bot-msg loading" id="load">
+
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+`;
+
+
+
+box.scrollTop=box.scrollHeight;
+
+
+
+
+
+let response=await fetch("/chat",{
+
+
+method:"POST",
+
+headers:{
+
+"Content-Type":"application/json"
+
+},
+
+
+body:JSON.stringify({
+
+message:text
+
+})
+
+
+});
+
+
+
+
+
+let data=await response.json();
+
+
+
+
+document.getElementById("load").remove();
+
+
+
+
+box.innerHTML += `
+
+
+<div class="bot-msg">
+
+<div class="icon">
+🤖
+</div>
+
+
+<div>
+
+${data.reply}
+
+</div>
+
+
+</div>
+
+
+`;
+
+
+
+box.scrollTop=box.scrollHeight;
+
+
+}
+
+
+
+
+
+
+
+function clearChat(){
+
+
+document.getElementById("chat-box").innerHTML="";
+
+
+}
+
+
+
+
+
+</script>
+
+
+</body>
+
+</html>
